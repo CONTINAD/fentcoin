@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$FENT - The Fentanyl Fold</title>
+    <meta name="description"
+        content="$FENT - The Fentanyl Fold. The most degenerate memecoin on Solana. Proof of Fiend Technology.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- VIDEO BACKGROUND -->
+    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; overflow: hidden;">
+        <video autoplay muted loop playsinline id="videoBg" style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="assets/background.mp4" type="video/mp4">
+        </video>
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); pointer-events: none;">
+        </div>
+    </div>
+
+    <!-- ENTRY SCANNER OVERLAY -->
+    <div id="scannerOverlay" class="scanner-overlay">
+        <div class="scanner-container">
+            <div class="scanner-box">
+                <div class="scan-line"></div>
+                <div class="scanner-corners">
+                    <div class="corner tl"></div>
+                    <div class="corner tr"></div>
+                    <div class="corner bl"></div>
+                    <div class="corner br"></div>
+                </div>
+                <div class="scanner-content">
+                    <img src="assets/fent.jpg" alt="SCANNING" class="scan-image">
+                </div>
+            </div>
+            <h2 class="scanner-title">FIEND DETECTION SCAN™</h2>
+            <p class="scanner-status" id="scanStatus">Initializing quantum scan protocols...</p>
+            <div class="scanner-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="scanner-results" id="scanResults">
+                <div class="result-item" data-delay="500">
+                    <span class="result-icon">✓</span>
+                    <span class="result-text">WALLET BALANCE: Acceptable</span>
+                </div>
+                <div class="result-item" data-delay="1000">
+                    <span class="result-icon">✓</span>
+                    <span class="result-text">FIEND STATUS: Verified</span>
+                </div>
+                <div class="result-item" data-delay="1500">
+                    <span class="result-icon">✓</span>
+                    <span class="result-text">PAPER HANDS: Not Detected</span>
+                </div>
+                <div class="result-item" data-delay="2000">
+                    <span class="result-icon">✓</span>
+                    <span class="result-text">DEA SURVEILLANCE: Evaded</span>
+                </div>
+            </div>
+            <button class="enter-btn" id="enterBtn" style="display: none;">
+                ENTER THE FOLD
+            </button>
+        </div>
+    </div>
+
+    <!-- Particle Canvas Background -->
+    <canvas id="particles"></canvas>
+
+    <!-- Contract Address Banner -->
+    <div class="ca-banner" id="caBanner">
+        <span class="ca-label">CA:</span>
+        <span class="ca-address" id="caAddress">COMING SOON...</span>
+        <button class="ca-copy" onclick="copyCA()">📋 Copy</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">$FENT</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#technology">Technology</a>
+            <a href="#how-to-buy">How to Buy</a>
+            <a href="#community">Community</a>
+            <a href="#" class="btn btn-sm" id="buyBtn">Buy $FENT</a>
+        </div>
+        <div class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-image-container">
+                <div class="glow-ring"></div>
+                <img src="assets/fent.jpg" alt="$FENT" class="hero-image">
+            </div>
+            <h1 class="hero-title">
+                <span class="glitch" data-text="$FENT">$FENT</span>
+            </h1>
+            <p class="hero-tagline">THE FENTANYL FOLD</p>
+            <p class="hero-subtitle">The first quantum-resistant fiend-powered blockchain solution. By addicts, for
+                addicts.</p>
+            <div class="hero-buttons">
+                <a href="#how-to-buy" class="btn btn-primary" id="buyBtnHero">
+                    <span>Buy $FENT</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <a href="#" class="btn btn-secondary" id="chartBtn">
+                    <span>View Chart</span>
+                </a>
+                <a href="#" class="btn btn-secondary" id="bluepaperBtn">
+                    <span>Read Bluepaper</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- Backed By Section (Fake VCs) -->
+    <section class="backed-section">
+        <h3 class="backed-title">$50M SERIES A SUCCESSFULLY CLOSED</h3>
+        <p class="backed-subtitle">Major players from the streets, Wall Street, and every block in between threw the bag
+            at us.</p>
+        <div class="marquee-container">
+            <div class="marquee">
+                <div class="marquee-content">
+                    <span class="vc-logo">Paradigm</span>
+                    <span class="vc-logo">Andreessen Horowitz</span>
+                    <span class="vc-logo">Jump Crypto</span>
+                    <span class="vc-logo">Y-Combinator</span>
+                    <span class="vc-logo">Multicoin Capital</span>
+                    <span class="vc-logo">Sequoia</span>
+                    <span class="vc-logo">Binance Labs</span>
+                    <span class="vc-logo">Coinbase Ventures</span>
+                    <span class="vc-logo">Paradigm</span>
+                    <span class="vc-logo">Andreessen Horowitz</span>
+                    <span class="vc-logo">Jump Crypto</span>
+                    <span class="vc-logo">Y-Combinator</span>
+                    <span class="vc-logo">Multicoin Capital</span>
+                    <span class="vc-logo">Sequoia</span>
+                    <span class="vc-logo">Binance Labs</span>
+                    <span class="vc-logo">Coinbase Ventures</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">WTF IS <span class="highlight">$FENT</span>?</h2>
+            <div class="about-intro glass">
+                <p>Introducing <strong>$FENT</strong>: The First Fully Fiend-Powered Layer 2 Solution on Solana.</p>
+                <p>0 minute high. Infinite bag potential. The only blockchain solution built by real ones, for real
+                    ones. Pfizer didn't even think this shit was possible.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card glass">
+                    <div class="card-icon">💊</div>
+                    <h3>Pure Degeneracy</h3>
+                    <p>$FENT isn't just a coin—it's a lifestyle. Born from the streets, made for the degens who don't
+                        know when to quit.</p>
+                </div>
+                <div class="about-card glass">
+                    <div class="card-icon">🔥</div>
+                    <h3>Community First</h3>
+                    <p>No dev team bullshit. No rug pulls. Just pure community power pushing this to levels the feds
+                        can't reach.</p>
+                </div>
+                <div class="about-card glass">
+                    <div class="card-icon">🚀</div>
+                    <h3>Moon Mission</h3>
+                    <p>Diamond hands only. Paper hands get folded. We're taking this higher than the product itself.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section (Absurd Features) -->
+    <section class="section technology" id="technology">
+        <div class="container">
+            <h2 class="section-title">REVOLUTIONARY <span class="highlight">TECHNOLOGY</span></h2>
+            <p class="section-subtitle">Built with patent-pending blockchain innovations that Big Pharma doesn't want
+                you to know about</p>
+
+            <div class="tech-grid">
+                <div class="tech-card glass">
+                    <div class="tech-header">
+                        <span class="tech-icon">🧪</span>
+                        <span class="tech-badge">PATENT PENDING</span>
+                    </div>
+                    <h3>Proof-of-Fiend™ Consensus</h3>
+                    <p>Our proprietary validation system detects paper hands with 100% accuracy using advanced crackhead
+                        detection algorithms. Only true fiends can validate blocks.</p>
+                </div>
+
+                <div class="tech-card glass">
+                    <div class="tech-header">
+                        <span class="tech-icon">💉</span>
+                        <span class="tech-badge">REVOLUTIONARY</span>
+                    </div>
+                    <h3>FTN (Fiend Transaction Network)</h3>
+                    <p>Patented technology designed for maximum efficiency. One Gorillion TPS transaction speed. Faster
+                        than you can say "just one more hit."</p>
+                </div>
+
+                <div class="tech-card glass">
+                    <div class="tech-header">
+                        <span class="tech-icon">🛡️</span>
+                        <span class="tech-badge">QUANTUM-RESISTANT</span>
+                    </div>
+                    <h3>DEA Evasion Protocol™</h3>
+                    <p>Military-grade encryption combined with Schrödinger's Wallet Technology™ - your bags exist and
+                        don't exist simultaneously until the feds check.</p>
+                </div>
+
+                <div class="tech-card glass">
+                    <div class="tech-header">
+                        <span class="tech-icon">📊</span>
+                        <span class="tech-badge">AI-POWERED</span>
+                    </div>
+                    <h3>Broke Boy Detection™</h3>
+                    <p>Real-time wallet scanning identifies and bounces anyone with less than $100 in their portfolio.
+                        This is for serious fiends only.</p>
+                </div>
+
+                <div class="tech-card glass">
+                    <div class="tech-header">
+                        <span class="tech-icon">⚡</span>
+                        <span class="tech-badge">INNOVATIVE</span>
+                    </div>
+                    <h3>Tolerance-Free Staking</h3>
+                    <p>Unlike fentanyl, your staking rewards never diminish. Same hit, every time. 420% APY guaranteed*
+                        (*not financial advice)</p>
+                </div>
+
+                <div class="tech-card glass">
+                    <div class="tech-header">
+                        <span class="tech-icon">🔮</span>
+                        <span class="tech-badge">NEXT-GEN</span>
+                    </div>
+                    <h3>HPML (High Protection Money Layer)</h3>
+                    <p>Advanced cryptographic layers protect your investment better than the cartels protect their
+                        territory. No snakes allowed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy Section -->
+    <section class="section how-to-buy" id="how-to-buy">
+        <div class="container">
+            <h2 class="section-title">HOW TO <span class="highlight">SCORE</span></h2>
+            <p class="section-subtitle">Choose your preferred method below and join the fold</p>
+
+            <div class="buy-methods">
+                <div class="buy-card glass">
+                    <div class="buy-number">1</div>
+                    <h3>Download Phantom</h3>
+                    <p>Get the Phantom wallet for your browser or mobile device:</p>
+                    <ul>
+                        <li>→ Download from phantom.app</li>
+                        <li>→ Create a new wallet or import existing</li>
+                        <li>→ Save your seed phrase (seriously, do it)</li>
+                    </ul>
+                    <a href="https://phantom.app" target="_blank" class="buy-link">Download Phantom →</a>
+                </div>
+
+                <div class="buy-card glass">
+                    <div class="buy-number">2</div>
+                    <h3>Get SOL</h3>
+                    <p>Fund your wallet with Solana:</p>
+                    <ul>
+                        <li>→ Buy SOL on Coinbase, Binance, or KuCoin</li>
+                        <li>→ Send to your Phantom wallet address</li>
+                        <li>→ Leave some for gas fees (0.01 SOL enough)</li>
+                    </ul>
+                </div>
+
+                <div class="buy-card glass">
+                    <div class="buy-number">3</div>
+                    <h3>Swap for $FENT</h3>
+                    <p>Time to score the bag:</p>
+                    <ul>
+                        <li>→ Go to Jupiter or Raydium</li>
+                        <li>→ Connect your Phantom wallet</li>
+                        <li>→ Paste the $FENT contract address</li>
+                        <li>→ Swap that shit and join the fold</li>
+                    </ul>
+                    <a href="#" class="buy-link" id="jupiterLink">Buy on Jupiter →</a>
+                </div>
+            </div>
+
+            <!-- Contract Address -->
+            <div class="contract-section glass">
+                <h3>Contract Address</h3>
+                <div class="contract-box">
+                    <span id="contractAddress">COMING SOON...</span>
+                    <button class="copy-btn" id="copyBtn" onclick="copyContract()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                </div>
+                <p class="contract-warning">⚠️ Always verify the contract before buying. Don't trust random links.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="section tokenomics" id="tokenomics">
+        <div class="container">
+            <h2 class="section-title">TOKENOMICS</h2>
+            <div class="tokenomics-grid">
+                <div class="token-card glass">
+                    <div class="token-value">1B</div>
+                    <div class="token-label">Total Supply</div>
+                </div>
+                <div class="token-card glass">
+                    <div class="token-value">0%</div>
+                    <div class="token-label">Buy Tax</div>
+                </div>
+                <div class="token-card glass">
+                    <div class="token-value">0%</div>
+                    <div class="token-label">Sell Tax</div>
+                </div>
+                <div class="token-card glass">
+                    <div class="token-value">🔥</div>
+                    <div class="token-label">LP Burned</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="section community" id="community">
+        <div class="container">
+            <h2 class="section-title">JOIN THE <span class="highlight">FOLD</span></h2>
+            <p class="section-subtitle">Connect with the most unhinged community in crypto</p>
+            <div class="social-grid">
+                <a href="https://x.com/i/communities/2001073989222105492" target="_blank" class="social-card glass"
+                    id="twitterLink">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                    <span>Join Community</span>
+                </a>
+                <a href="#" target="_blank" class="social-card glass" id="dexLink">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                        <polyline points="16 7 22 7 22 13"></polyline>
+                    </svg>
+                    <span>DEXScreener</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">$FENT</div>
+            <p class="footer-text">The Fentanyl Fold © 2024. Not financial advice. Not drug advice. Do your own
+                research.</p>
+            <p class="footer-disclaimer">$FENT is a memecoin with no intrinsic value. This is satire. Don't do drugs.
+                Trade at your own risk.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

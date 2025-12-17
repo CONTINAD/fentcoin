@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$FENT Bluepaper - The Fentanyl Fold</title>
+    <meta name="description"
+        content="The official $FENT Bluepaper. A technical deep-dive into the world's first Fiend-Powered blockchain solution.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --accent-primary: #00ff88;
+            --accent-secondary: #8b5cf6;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00ff88, #00ccff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-top: 0.5rem;
+        }
+
+        .version {
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--text-primary);
+            margin: 2rem 0 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            border-left: 4px solid var(--accent-primary);
+            padding-left: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--accent-secondary);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .warning {
+            background: rgba(255, 51, 102, 0.1);
+            border: 1px solid rgba(255, 51, 102, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: #ff6b6b;
+        }
+
+        .tech-box {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid var(--accent-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-primary);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        ul {
+            color: var(--text-secondary);
+            margin: 1rem 0 2rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ff88, #00ccff);
+            color: #000;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">$FENT</div>
+            <div class="subtitle">THE BLUEPAPER</div>
+            <div class="version">v4.20.69 | December 2024</div>
+        </header>
+
+        <section>
+            <h1>1. Executive Summary</h1>
+            <p>
+                <span class="highlight">$FENT</span> represents a paradigm shift in blockchain technology. While others
+                focus on "utility" and "solving real problems," we asked a different question: <em>What if we
+                    didn't?</em>
+            </p>
+            <p>
+                The Fentanyl Fold is the world's first <span class="highlight">Fiend-Powered Layer 2 Solution</span>
+                built on Solana. Our proprietary <span class="highlight">Proof-of-Fiend™</span> consensus mechanism
+                ensures that only the most dedicated degens can participate in network validation.
+            </p>
+            <p>
+                This is not financial advice. This is not drug advice. This is the future.
+            </p>
+        </section>
+
+        <section>
+            <h1>2. The Problem</h1>
+            <p>
+                The current cryptocurrency landscape suffers from several critical flaws:
+            </p>
+            <ul>
+                <li>Too many projects actually try to be useful</li>
+                <li>Paper hands are allowed to participate freely</li>
+                <li>DEA surveillance remains unaddressed by major protocols</li>
+                <li>Broke boys continue to have access to financial markets</li>
+                <li>Most tokens lack adequate crackhead energy</li>
+            </ul>
+            <p>
+                Existing solutions have failed to address these fundamental issues. Until now.
+            </p>
+        </section>
+
+        <section>
+            <h1>3. The Solution: $FENT Protocol</h1>
+            <p>
+                $FENT introduces revolutionary technology that solves everything wrong with crypto while simultaneously
+                solving nothing practical whatsoever.
+            </p>
+
+            <h2>3.1 Proof-of-Fiend™ Consensus</h2>
+            <p>
+                Traditional consensus mechanisms like Proof-of-Work and Proof-of-Stake are fundamentally flawed—they
+                allow just anyone to participate. Our <span class="highlight">Proof-of-Fiend™</span> protocol uses
+                advanced crackhead detection algorithms to ensure only true believers can validate transactions.
+            </p>
+
+            <div class="tech-box">
+                FIEND_SCORE = (DIAMOND_HANDS × DEGEN_FACTOR) / (PAPER_HANDS + 1)<br><br>
+                if FIEND_SCORE > 420.69:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return APPROVED<br>
+                else:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return NGMI
+            </div>
+
+            <h2>3.2 FTN (Fiend Transaction Network)</h2>
+            <p>
+                The FTN processes transactions at speeds never before seen in blockchain history. Our patented <span
+                    class="highlight">One Gorillion TPS</span> throughput ensures your bags pump faster than you can say
+                "just one more hit."
+            </p>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-value">∞</div>
+                    <div class="stat-label">Transactions Per Second</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Useful Features</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Degen Energy</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">420%</div>
+                    <div class="stat-label">APY (Trust Me Bro)</div>
+                </div>
+            </div>
+
+            <h2>3.3 DEA Evasion Protocol™</h2>
+            <p>
+                Utilizing military-grade encryption combined with our proprietary <span class="highlight">Schrödinger's
+                    Wallet Technology™</span>, your holdings exist in a quantum superposition—simultaneously present and
+                absent until the feds check.
+            </p>
+
+            <h2>3.4 Broke Boy Detection™</h2>
+            <p>
+                Our AI-powered wallet scanning technology identifies and bounces anyone with less than $100 in their
+                portfolio. This is a coin for serious fiends only. No window shoppers allowed.
+            </p>
+        </section>
+
+        <section>
+            <h1>4. Tokenomics</h1>
+            <p>
+                The $FENT token distribution is designed with maximum chaos in mind:
+            </p>
+
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-value">1B</div>
+                    <div class="stat-label">Total Supply</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">0%</div>
+                    <div class="stat-label">Buy/Sell Tax</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">🔥</div>
+                    <div class="stat-label">LP Burned</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">♾️</div>
+                    <div class="stat-label">Meme Potential</div>
+                </div>
+            </div>
+
+            <ul>
+                <li><span class="highlight">100%</span> of supply to liquidity (fair launch)</li>
+                <li><span class="highlight">0%</span> to team (we're here for the chaos)</li>
+                <li><span class="highlight">0%</span> to VCs (they'll FOMO in later anyway)</li>
+                <li>LP tokens burned to the void</li>
+                <li>Contract renounced (we don't want the responsibility)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>5. Roadmap</h1>
+            <p>Our strategic development plan:</p>
+
+            <h2>Phase 1: The First Hit</h2>
+            <ul>
+                <li>Token launch on Solana</li>
+                <li>Build community of certified fiends</li>
+                <li>Get listed on DEXScreener</li>
+                <li>Achieve meme coin status</li>
+            </ul>
+
+            <h2>Phase 2: Tolerance Building</h2>
+            <ul>
+                <li>Expand to 10,000 holders</li>
+                <li>Partnerships with other degen projects</li>
+                <li>CEX listings (if they're brave enough)</li>
+                <li>Community governance (bad ideas only)</li>
+            </ul>
+
+            <h2>Phase 3: Full Addiction</h2>
+            <ul>
+                <li>World domination (or at least trending on X)</li>
+                <li>$1B market cap (manifestation energy)</li>
+                <li>The Fold becomes a religion</li>
+                <li>Pfizer partnership (they started this)</li>
+            </ul>
+
+            <h2>Phase 4: ????</h2>
+            <ul>
+                <li>We'll figure it out when we get there</li>
+                <li>Probably more memes</li>
+                <li>Maybe actual utility (just kidding)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>6. Team</h1>
+            <p>
+                The $FENT team consists of anonymous individuals who definitely know what they're doing. Our collective
+                experience includes:
+            </p>
+            <ul>
+                <li>Losing money on at least 47 meme coins</li>
+                <li>Saying "this is the one" at least 200 times</li>
+                <li>Diamond handing through -90% drawdowns</li>
+                <li>Zero actual blockchain development experience</li>
+                <li>Unhealthy amounts of screen time</li>
+            </ul>
+            <p>
+                We are doxed to God and that's all that matters.
+            </p>
+        </section>
+
+        <section>
+            <h1>7. Risk Factors</h1>
+            <div class="warning">
+                <strong>⚠️ IMPORTANT DISCLAIMERS:</strong><br><br>
+                • This is a meme coin with zero intrinsic value<br>
+                • You will probably lose all your money<br>
+                • Past performance of other meme coins means nothing<br>
+                • We are not financial advisors (obviously)<br>
+                • Don't bet your rent money (or do, we're not your parents)<br>
+                • The name is satire—don't do drugs<br>
+                • No, we're not actually affiliated with the DEA<br>
+                • Yes, this entire document is a joke
+            </div>
+        </section>
+
+        <section>
+            <h1>8. Conclusion</h1>
+            <p>
+                $FENT represents the pinnacle of degenerate blockchain innovation. We've taken everything wrong with
+                crypto and leaned into it fully.
+            </p>
+            <p>
+                Will this make you money? Probably not.<br>
+                Will this make you laugh? Hopefully.<br>
+                Will this change your life? Only if you let it.
+            </p>
+            <p>
+                <span class="highlight">Welcome to the Fold.</span>
+            </p>
+        </section>
+
+        <footer class="footer">
+            <p>$FENT - The Fentanyl Fold © 2024</p>
+            <p>This is satire. Not financial advice. Not drug advice. DYOR.</p>
+            <a href="index.html" class="back-btn">← Back to Main Site</a>
+        </footer>
+    </div>
+</body>
+
+</html>
