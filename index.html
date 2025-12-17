@@ -17,13 +17,12 @@
 
 <body>
     <!-- VIDEO BACKGROUND -->
-    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; overflow: hidden;">
+    <div
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 5; overflow: hidden; pointer-events: none;">
         <video autoplay muted loop playsinline id="videoBg" style="width: 100%; height: 100%; object-fit: cover;">
             <source src="assets/background.mp4" type="video/mp4">
         </video>
-        <div
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); pointer-events: none;">
-        </div>
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4);"></div>
     </div>
 
     <!-- ENTRY SCANNER OVERLAY -->
