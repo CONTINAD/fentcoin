@@ -297,13 +297,13 @@ window.addEventListener('scroll', () => {
 
 // ===== Configuration - Update these with your links =====
 const CONFIG = {
-    contractAddress: 'COMING SOON...',
-    buyLink: '#',
-    chartLink: '#',
+    contractAddress: 'jMeAG3tyWcHSdh9HA1F9bksL6vrc1bKcq1NZW8opump',
+    buyLink: 'https://jup.ag/swap/SOL-jMeAG3tyWcHSdh9HA1F9bksL6vrc1bKcq1NZW8opump',
+    chartLink: 'https://dexscreener.com/solana/jMeAG3tyWcHSdh9HA1F9bksL6vrc1bKcq1NZW8opump',
     bluepaperLink: 'bluepaper.html',
-    jupiterLink: '#',
+    jupiterLink: 'https://jup.ag/swap/SOL-jMeAG3tyWcHSdh9HA1F9bksL6vrc1bKcq1NZW8opump',
     communityLink: 'https://x.com/i/communities/2001073989222105492',
-    dexLink: '#'
+    dexLink: 'https://dexscreener.com/solana/jMeAG3tyWcHSdh9HA1F9bksL6vrc1bKcq1NZW8opump'
 };
 
 // Apply configuration
